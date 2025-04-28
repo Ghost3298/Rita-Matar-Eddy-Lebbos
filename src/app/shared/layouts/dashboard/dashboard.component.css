@@ -1,0 +1,32 @@
+.split-screen{
+    display: flex;
+    height: 75svh;
+}
+
+.admin-dashboard h2{
+    color: #636363;
+    user-select: none;
+}
+
+.schedule{
+    width: 50%;
+    height: 100%;
+    background-color: var(--secondary);
+    border-radius: 0px 8px 8px 0px;
+    box-sizing:border-box;
+    padding: 10px;
+    color: #ffffff
+}
+
+@media (max-width: 768px) {
+    .split-screen{
+        flex-direction: column;
+    }
+
+
+    .schedule {
+        width: 100%;
+        flex-direction: column;
+        border-radius: 0px 0px 8px 8px;
+    }
+}

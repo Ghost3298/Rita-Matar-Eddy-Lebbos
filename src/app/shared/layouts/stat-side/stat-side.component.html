@@ -1,0 +1,8 @@
+<div class="stats">
+    <app-stat-card
+        *ngFor="let stat of stats"
+        [title]="stat.title"
+        [value]="stat.value"
+        [icon]="stat.icon">
+    </app-stat-card>
+</div>

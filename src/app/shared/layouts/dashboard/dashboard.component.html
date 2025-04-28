@@ -1,0 +1,16 @@
+<div class="admin-dashboard">
+
+    <h2>{{role}} | Dashboard</h2>
+
+    <div class="split-screen">
+        <div class="stats">
+            <app-stat-side [stats]="stats"></app-stat-side>
+        </div>
+
+        <div class="schedule">
+            <div class="calendar">
+                <app-calendar [appointments]="appointments"></app-calendar>
+            </div>
+        </div>
+    </div>
+</div>

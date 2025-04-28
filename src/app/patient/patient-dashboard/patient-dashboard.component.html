@@ -1,0 +1,36 @@
+<div class="admin-dashboard">
+
+    <h2>Patient | Dashboard</h2>
+
+    <div class="split-screen">
+        <app-stat-side
+        [stats]="appointments"
+        >
+        </app-stat-side>
+
+        <div class="data">
+            <img src="assets/images/Patient.png">
+
+            <table>
+                <tr>
+                    <td>Firstname:</td>
+                    <td>{{patient.firstName}}</td>
+                </tr>
+                <tr>
+                    <td>Father's name:</td>
+                    <td>{{patient.fatherSName}}</td>
+                </tr>
+                <tr>
+                    <td>Lastname:</td>
+                    <td>{{patient.lastName}}</td>
+                </tr>
+                <tr>
+                    <td>Year of birth:</td>
+                    <td>{{patient.dob}}</td>
+                    <td>Blood Type</td>
+                    <td>{{patient.bloodType}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

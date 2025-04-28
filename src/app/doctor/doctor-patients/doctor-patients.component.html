@@ -1,0 +1,26 @@
+<div class="admin-panel">
+    <div class="header">
+      <h2>Doctor | Patients</h2> 
+    </div>
+  
+    <div *ngIf="isLoading" class="loading-spinner">
+        Loading patients...
+      </div>
+      
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+      
+      <div *ngIf="!isLoading && patients.length === 0" class="no-patients">
+        No patients found.
+      </div>
+      
+    <div class="panel-list">
+      <app-stat-card
+        *ngFor="let user of patients"
+        [title]="user.firstName + ' ' + user.lastName"
+        [value]="user.bloodType"
+        [icon]="'assets/images/' + user.role + '.png'">
+      </app-stat-card>
+    </div>
+</div>

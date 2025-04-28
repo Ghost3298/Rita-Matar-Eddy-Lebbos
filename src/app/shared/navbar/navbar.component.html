@@ -1,0 +1,33 @@
+<div class="Logout-Popup" id="Logout-Popup">
+    <div class="modal">
+        <p>Are You Sure?</p>
+        <div  class="modal-buttons">
+            <button (click)="Logout()">yes</button>
+            <button (click)="Popup()">no</button>
+        </div>
+    </div>
+</div>
+
+<div class="navbar" [ngClass]="{'active': isMenuOpen}">
+    <button class="hamburger" (click)="toggleMenu()">☰</button>
+
+    <p class="navbar-child">hello,&nbsp;{{username || 'Guest'}}</p>
+
+    <ul class="navbar-child">
+        <li class="link-style" (click)="GOTO('home/' + role + '-dashboard')"><mat-icon aria-label="home" fontIcon="home"></mat-icon>Home</li>
+        <li class="link-style" (click)="GOTO('home/' + role + '-schedule')"><mat-icon aria-label="home" fontIcon="calendar_today"></mat-icon>Schedule</li>
+
+        <li *ngIf="role === 'Admin'" class="link-style" (click)="GOTO('/home/Admin-panel')">
+            <mat-icon aria-label="admin-panel" fontIcon="admin_panel_settings"></mat-icon> Admin Panel
+         </li>
+
+         <li *ngIf="role === 'Doctor'" class="link-style" (click)="GOTO('/home/Doctor-patients')">
+            <mat-icon aria-label="my-patients" fontIcon="personal-injury"></mat-icon> My Patients
+         </li>
+
+         
+        <button class="Logout-Button" (click)="Popup()">
+           <span class="link-style" ><mat-icon aria-hidden="false" aria-label="logout" fontIcon="logout"></mat-icon>Logout</span>
+        </button>
+    </ul>
+</div>

@@ -1,0 +1,27 @@
+<div class="Login-Form">
+    <form [formGroup]="loginForm" (ngSubmit)="loginClick()">
+        <input type="text" 
+               placeholder="Username..." 
+               id="username"
+               formControlName="username"
+               required />
+               
+        <input type="password" 
+               placeholder="Password..." 
+               id="password"
+               formControlName="password"
+               required/>
+               
+        <button type="submit">Login</button>
+        <div class="errormsg" *ngIf="errorMessage">
+            {{errorMessage}}
+        </div>
+    </form>
+
+    <img src="assets/images/login-img.png" alt="Login Image" />
+
+    
+</div>
+
+
+<router-outlet></router-outlet>

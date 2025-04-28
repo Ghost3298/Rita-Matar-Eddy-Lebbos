@@ -1,0 +1,42 @@
+<div class="admin-dashboard">
+    <h2>Doctor | Dashboard</h2>
+
+    <div class="split-screen">
+        <div class="AppDetails">
+            Appointment Details:
+            <p *ngIf="!selectedAppointment">please select an appointment to see its details</p>
+
+            <form class="appDetailsForm" *ngIf="selectedAppointment" [formGroup]="appointmentForm" (ngSubmit)="saveAppointment()">
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" formControlName="date">
+                </div>
+
+                <div class="form-group">
+                    <label>Time</label>
+                    <input type="time" formControlName="time">
+                </div>
+
+                <div class="form-group">
+                    <label>Status</label>
+                    <select formControlName="status">
+                        <option *ngFor="let status of statusOptions" [value]="status">
+                            {{ status }}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea formControlName="notes" placeholder="Doctor notes"></textarea>
+                </div>
+
+                <button type="submit" class="btn-save">Save Changes</button>
+            </form>
+        </div>
+
+        <div class="schedule">
+            <app-calendar [appointments]="appointments" (appointmentSelected)="onAppointmentSelected($event)"></app-calendar>
+        </div>
+    </div>
+</div>

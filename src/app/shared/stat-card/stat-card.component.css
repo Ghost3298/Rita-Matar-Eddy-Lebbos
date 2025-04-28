@@ -1,0 +1,49 @@
+.stat-card {
+    user-select: none;
+    transition: transform 0.2s ease-in-out;
+    background-color: rgba(163, 244, 255, 0.348);
+    border-radius: 8px;
+    padding: 25px;
+    min-width: 250px;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    cursor: pointer;
+}
+
+
+img{
+  height: 100px;
+}
+
+h1{
+  font-size: 3rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .stat-card {
+        padding: 15px;
+        height: 100px;
+        min-width: 100px;
+        width: 80%;
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    img {
+        height: 40px;
+        margin-top: -25px;
+        align-self: flex-end;
+    }
+}

@@ -1,0 +1,55 @@
+<div class="admin-schedule">
+    <h2>{{role}} | Schedule</h2>
+    
+    <button (click)="openModal()" *ngIf="docSelected" class="exitbutton addButton">+</button>
+
+    <div class="addModal" *ngIf="isModalOpen">
+        <button (click)="openModal()" class="exitbuttonModal">×</button>
+
+        <form [formGroup]="appForm" class="addForm" (ngSubmit)="submitApp()">
+            <input type="text" disabled 
+                   [value]="selectedDoctor ? selectedDoctor.firstName + ' ' + selectedDoctor.lastName + ' (ID: ' + selectedDoctor.id + ')' : ''">
+            
+            <select formControlName="patientId" required *ngIf="!isPatientView">
+                <option value="" disabled selected>Select Patient</option>
+                <option *ngFor="let p of patients" [value]="p.id">
+                    {{p.firstName}} {{p.fatherSName}} {{p.lastName}}
+                </option>
+            </select>
+
+            <input disabled *ngIf="isPatientView" type="text" [value]="currentUser.id">
+            
+            <input type="date" formControlName="date" required>
+            <input type="time" formControlName="time" required>
+            <input type="text" formControlName="note" placeholder="notes">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="split-screen">
+        <div class="child" *ngIf="doctors.length==0">
+            <app-stat-card
+                *ngFor="let f of fields"
+                [title]="f"
+                [icon]="'assets/images/'+f+'.png'"
+                value=''
+                (click)="getDoctors(f)"
+            ></app-stat-card>
+        </div>
+
+        <div class="child" *ngIf="doctors.length>0">
+            <button (click)="clearDoctors()" class="exitbutton">←</button>
+            <app-stat-card
+                *ngFor="let d of doctors"
+                [title]="d.firstName + ' ' + d.lastName" 
+                value=""
+                [icon]="'assets/images/Doctor.png'"
+                (click)="loadDoctorAppointments(d)"
+            ></app-stat-card>
+        </div>
+
+        <div class="child">
+            <app-calendar [appointments]="selectedDoctorAppointments"></app-calendar>
+        </div>
+    </div>
+</div>

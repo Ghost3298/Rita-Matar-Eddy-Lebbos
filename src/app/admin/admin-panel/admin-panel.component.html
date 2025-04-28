@@ -1,0 +1,57 @@
+<div class="admin-panel">
+    <div class="header">
+      <h2>Admin | Panel</h2> 
+      <button (click)="openAddModal()">+</button>
+    </div>
+  
+    <div class="panel-list">
+      <app-stat-card
+        *ngFor="let user of users"
+        [title]="user.firstName + ' ' + user.lastName"
+        [value]="user.bloodType"
+        [icon]="'assets/images/' + user.role + '.png'">
+      </app-stat-card>
+    </div>
+  
+    <div class="addModal" *ngIf="isModalOpen">
+      <button (click)="openAddModal()" class="exitbutton">×</button>
+  
+      <form class="addForm" (ngSubmit)="onSubmit()" [formGroup]="userForm">
+        <select formControlName="role" required>
+          <option value="" disabled selected>Role</option>
+          <option value="Admin">Admin</option>
+          <option value="Doctor">Doctor</option>
+          <option value="Patient">Patient</option>
+        </select>
+  
+        <input type="text" formControlName="username" placeholder="Username..." required>
+        <input type="text" formControlName="firstname" placeholder="First name..." required>
+        <input type="text" formControlName="fathersname" placeholder="Father's name...">
+        <input type="text" formControlName="lastname" placeholder="Last name..." required>
+        <input type="date" formControlName="yob" placeholder="Year of birth">
+  
+        <select formControlName="bloodType">
+          <option value="" disabled selected>Blood type</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+        </select>
+  
+        <input 
+          type="text" 
+          *ngIf="userForm.get('role')?.value === 'Doctor'" 
+          formControlName="field" 
+          placeholder="Medical field..."
+        >
+        
+        <input type="password" formControlName="password" placeholder="Password..." required>
+  
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>

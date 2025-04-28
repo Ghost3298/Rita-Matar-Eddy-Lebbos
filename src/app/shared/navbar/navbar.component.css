@@ -1,0 +1,219 @@
+.navbar *{
+    user-select: none;
+    z-index: 1;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    background-color: var(--primary);
+    height: 75px;
+    border-radius: 10px;
+    padding: 0 20px;
+    position: relative;
+    align-items: center;
+}
+
+.navbar p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.navbar-child:nth-child(1) {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style: none;
+    text-align: center;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    flex: 1;
+    justify-content: space-evenly;
+}
+
+.navbar button {
+    background-color: transparent;
+    border: none;
+}
+
+.navbar button mat-icon {
+    font-size: 24px;
+    font-weight: bold;
+    width: 30px;
+    height: 30px;
+}
+
+.navbar button span {
+    font-size: 18px;
+}
+
+.link-style {
+    display: flex;
+    padding:25px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.link-style:hover {
+    background-color: var(--background);
+    transform: scale(1.05);
+    cursor: pointer;
+    color: #071E22;
+}
+
+.Logout-Button{
+    display: flex;
+    padding:25px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+.hamburger {
+    display: none;
+    color: white;
+    font-size: 28px;
+    background: none;
+    border: none;
+}
+
+.Logout-Popup {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.modal-buttons {
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 25px;
+}
+
+.modal-buttons button {
+    border: none;
+    width: 150px;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.modal-buttons button:nth-child(1) {
+    background-color: red;
+}
+
+.modal-buttons button:nth-child(2) {
+    background-color: var(--secondary);
+    color: #ffffff;
+}
+
+.modal-buttons button:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 890px) {
+    .navbar {
+        height: auto;
+        min-height: 30px;
+        padding: 10px;
+        justify-content: space-between;
+    }
+
+    .navbar p{
+        font-size: 16px;
+    }
+
+    .hamburger {
+        display: block;
+        order: -1;
+    }
+
+    .navbar ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: var(--primary);
+        display: none;
+        border-radius: 0 0 10px 10px;
+        padding: 15px 0;
+        gap: 10px;
+    }
+
+    .navbar.active {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .navbar.active ul {
+        display: flex;
+    }
+
+    .link-style {
+        width: 100%;
+        margin: 0 0;
+        padding: 15px 0;
+        justify-content: center;
+    }
+
+    .link-style:hover {
+        transform: none;
+    }
+
+    .Logout-Button {
+        width: 100%;
+        margin: 0 0;
+        padding: 15px;
+        justify-content: center;
+    }
+
+    .Logout-Popup {
+        position: fixed;
+        background-color: rgba(255, 255, 255, 0.9);
+        width: 50svh;
+        height: 100svh;
+        z-index: 999;
+    }
+
+    .modal {
+        font-size: 18px;
+    }
+}
